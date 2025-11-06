@@ -197,29 +197,112 @@ img{
 }
 
 @media (max-width: 768px) {
+
+    /* El contenedor principal se vuelve columna (en lugar de fila) */
     .contenedor {
         flex-direction: column;
     }
 
+    /* El menú deja de estar fijo y se adapta arriba */
     .menu {
         width: 100%;
+        height: auto;
+        position: relative;
         border-right: none;
-        position: relative; /* ndi */
-        border-bottom: 1px solid #e38bb3;
+        border-bottom: 2px solid #e38bb3;
+        box-shadow: 0 4px 10px rgba(195, 75, 145, 0.15);
+        padding: 15px;
     }
 
-    .contenido {
-        margin-left: 0;
-        padding: 30px;
+    /* El título del menú más pequeño */
+    .menu h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
+    /* Navegación en fila (horizontal) y centrada */
     .menu nav {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 8px;
     }
 
     .menu nav a {
         font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    /* El contenido ahora ocupa todo el ancho */
+    .contenido {
+        margin-left: 0;
+        padding: 25px;
+        background-color: #ffe6f2;
+    }
+
+    .contenido h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .contenido h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .contenido p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    /* Los cuadros y ejemplos se ajustan al ancho y mantienen estilo */
+    .cuadro, .ejemplos {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    img {
+        width: 90%;
+        height: auto;
+        border-radius: 10px;
+        margin: 15px auto;
+    }
+
+    /* El pie se ajusta mejor en móvil */
+    .pie {
+        font-size: 13px;
+        padding: 12px;
+        margin-top: 30px;
+        background-color: #f2a6c1;
+    }
+}
+
+@media (max-width: 768px) {
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translateX(-15px); /* menos desplazamiento */
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(5px); /* más sutil */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .contenido {
+        animation: fadeIn 1.3s ease-in-out;
     }
 }
